@@ -22,7 +22,7 @@ public class DriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.tankDrive(Robot.oi.getLeftStickY(), Robot.oi.getRightStickY());
+    	Robot.drivetrain.roboDrive(Robot.oi.getLeftStickX(), Robot.oi.getLeftStickY(), Robot.oi.getRightStickX());
     	Timer.delay(0.005);
     }
 
