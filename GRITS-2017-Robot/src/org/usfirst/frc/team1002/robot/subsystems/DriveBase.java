@@ -3,7 +3,9 @@ package org.usfirst.frc.team1002.robot.subsystems;
 import org.usfirst.frc.team1002.robot.*;
 
 import org.usfirst.frc.team1002.robot.RobotMap;
+import org.usfirst.frc.team1002.robot.commands.DriveCommand;
 
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.VictorSP;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,31 +14,21 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class DriveBase extends Subsystem {
-	private VictorSP frontLeftMotor = new VictorSP(RobotMap.frontLeftMotor);
-	private VictorSP frontRightMotor = new VictorSP(RobotMap.frontRightMotor);
-	private VictorSP backLeftMotor = new VictorSP(RobotMap.BackLeftMotor);
-	private VictorSP backRightMotor = new VictorSP(RobotMap.BackRightMotor);
+	private RobotDrive theDrive = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.BackLeftMotor, RobotMap.frontRightMotor, RobotMap.BackLeftMotor);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
-        frontLeftMotor.set(0);
-        frontRightMotor.set(0);
-        backLeftMotor.set(0);
-        backRightMotor.set(0);
+       setDefaultCommand(new DriveCommand());
     }
     
-    public void tankDrive(double leftSpeed, double rightSpeed) {
-    	frontLeftMotor.set(leftSpeed);
-    	backLeftMotor.set(leftSpeed);
-    	frontRightMotor.set(rightSpeed);
-    	backRightMotor.set(rightSpeed);
+    public void roboDrive(double leftSpeed, double rightSpeed, double angle) {
+    	theDrive.mecanumDrive_Cartesian(leftSpeed, rightSpeed, angle, 0);
     }
     
     public void setRightMotors(double speed) {
-    	frontRightMotor.set(speed);
-    	backRightMotor.set(speed);
+    	
     }
 }
 

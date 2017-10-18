@@ -39,14 +39,22 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-	private XboxController xbox = new XboxController(1);
+	private XboxController xbox = new XboxController(0);
 	
 	public double getLeftStickY() {
 		return xbox.getY(GenericHID.Hand.kLeft); 
 	}
 	
-	public double getRightStickY() {
+	public double getLeftStickX() {
+		return xbox.getX(GenericHID.Hand.kLeft); 
+	}
+	
+	public double getRightStickX() {
 		return xbox.getX(GenericHID.Hand.kRight); 
+	}
+	
+	public double getRightStickY() {
+		return xbox.getY(GenericHID.Hand.kRight); 
 	}
 	
 	
