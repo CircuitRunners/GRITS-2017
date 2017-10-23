@@ -1,10 +1,8 @@
 package org.usfirst.frc.team1002.robot;
 
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
-
-import org.usfirst.frc.team1002.robot.commands.DriveCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -40,22 +38,39 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	
 	private XboxController xbox = new XboxController(0);
+	public AnalogGyro gyro = new AnalogGyro(RobotMap.gryoPort);
+	
 
 	public double getLeftStickX() {
-		return xbox.getX(GenericHID.Hand.kLeft); 
+		return deadzone(xbox.getX(Hand.kLeft)); 
 	}
 	
 	public double getLeftStickY() {
-		return xbox.getY(GenericHID.Hand.kLeft); 
+		return deadzone(xbox.getY(Hand.kLeft)); 
 	}
 	
 	public double getRightStickX() {
-		return xbox.getX(GenericHID.Hand.kRight); 
+		return deadzone(xbox.getX(Hand.kRight)); 
 	}
 	
 	public double getRightStickY() {
-		return xbox.getY(GenericHID.Hand.kRight); 
+		return deadzone(xbox.getY(Hand.kRight)); 
 	}
 	
+	public void drive() {
+		if (getLeftStickX() != 0 || getLeftStickY() != 0 || getRightStickX() != 0) {
+			;
+		}
+	}
 	
+	private static double deadzone(double value) {
+		if (value > 0.9) 
+			return 1;
+		else if (value < 0.1 && value > -0.1) 
+			return 0;
+		else if (value < -0.9) 
+			return -1;
+		else 
+			return Math.sin(value);
+	}
 }

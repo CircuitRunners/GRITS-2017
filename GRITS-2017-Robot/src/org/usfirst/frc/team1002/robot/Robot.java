@@ -24,9 +24,10 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	Command autonomousCommand;
-	Command teleopCommand;
+	//Command DriveCommand;
+	//Command teleopCommand;
 	SendableChooser<Command> autoChooser = new SendableChooser<>();
-	SendableChooser<Command> teleChooser = new SendableChooser<>();
+	//SendableChooser<Command> teleChooser = new SendableChooser<>();
 
 	/*
 	 * This function is run when the robot is first started up and should be
@@ -35,10 +36,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		// autoChooser.addDefault("My Auto", new MyAutoCommand());
-		teleChooser.addDefault("Teleop", new DriveCommand());
-		// SmartDashboard.putData("Autonomous Preset", autoChooser);
-		SmartDashboard.putData("Teleop Command", teleChooser);
+		//autoChooser.addDefault("Default", new AutoCommand());
+		autoChooser.addDefault("Default", new DriveCommand());
+		//SmartDashboard.putData("Autonomous Preset", autoChooser);
+		SmartDashboard.putData("Teleop Command", autoChooser);
 		
 	}
 
@@ -76,7 +77,7 @@ public class Robot extends IterativeRobot {
 		 * different autonomous programs, i.e. one for left start, one for middle, 
 		 * one for right. 
 		 */ 
-		autonomousCommand = autoChooser.getSelected();
+		//autonomousCommand = autoChooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -86,8 +87,8 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		//if (autonomousCommand != null)
+			//autonomousCommand.start();
 	}
 
 	/*
@@ -105,7 +106,7 @@ public class Robot extends IterativeRobot {
 		 * Allows you to choose between different teleop commands, if for some 
 		 * reason you would ever want that. 
 		 */
-		teleopCommand = teleChooser.getSelected();
+		autonomousCommand = autoChooser.getSelected();
 		
 		/* 
 		 * This makes sure that the autonomous stops running when
@@ -116,8 +117,6 @@ public class Robot extends IterativeRobot {
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 		
-		if (teleopCommand != null)
-			teleopCommand.start();
 		
 	}
 

@@ -5,6 +5,7 @@ import org.usfirst.frc.team1002.robot.*;
 import org.usfirst.frc.team1002.robot.RobotMap;
 import org.usfirst.frc.team1002.robot.commands.DriveCommand;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.VictorSP;
 
@@ -23,8 +24,9 @@ public class DriveBase extends Subsystem {
        setDefaultCommand(new DriveCommand());
     }
     
-    public void roboDrive(double leftSpeed, double rightSpeed, double angle) {
-    	robotDrive.mecanumDrive_Cartesian(leftSpeed, rightSpeed, angle, 0);
+    public void roboDrive(double y, double x, double angle) {
+    	robotDrive.mecanumDrive_Cartesian(y, x, angle, 0);
+    	
     }
 }
 
