@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class DriveBase extends Subsystem {
-	private RobotDrive theDrive = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.BackLeftMotor, RobotMap.frontRightMotor, RobotMap.BackLeftMotor);
+	private RobotDrive robotDrive = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.BackLeftMotor, RobotMap.frontRightMotor, RobotMap.BackLeftMotor);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -24,11 +24,7 @@ public class DriveBase extends Subsystem {
     }
     
     public void roboDrive(double leftSpeed, double rightSpeed, double angle) {
-    	theDrive.mecanumDrive_Cartesian(leftSpeed, rightSpeed, angle, 0);
-    }
-    
-    public void setRightMotors(double speed) {
-    	
+    	robotDrive.mecanumDrive_Cartesian(leftSpeed, rightSpeed, angle, 0);
     }
 }
 

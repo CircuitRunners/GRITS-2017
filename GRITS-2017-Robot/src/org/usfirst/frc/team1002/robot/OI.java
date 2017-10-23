@@ -23,7 +23,7 @@ public class OI {
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
 
-	//// TRIGGERING COMMANDS WITH BUTTONS
+	//// TRiGGERiNG COMMANDS WITH BUTTONS
 	// Once you have a button, it's trivial to bind it to a button in one of
 	// three ways:
 
@@ -40,13 +40,13 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	
 	private XboxController xbox = new XboxController(0);
+
+	public double getLeftStickX() {
+		return xbox.getX(GenericHID.Hand.kLeft); 
+	}
 	
 	public double getLeftStickY() {
 		return xbox.getY(GenericHID.Hand.kLeft); 
-	}
-	
-	public double getLeftStickX() {
-		return xbox.getX(GenericHID.Hand.kLeft); 
 	}
 	
 	public double getRightStickX() {
