@@ -1,4 +1,4 @@
-package org.usfirst.frc.team1002.robot;
+package com.github.circuitrunners;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 
