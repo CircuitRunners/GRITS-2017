@@ -3,19 +3,16 @@ package com.github.circuitrunners.subsystems;
 import com.github.circuitrunners.akilib.Module;
 
 import com.github.circuitrunners.Robot;
-import com.github.circuitrunners.RobotMap;
 import com.github.circuitrunners.akilib.Xbox;
-import edu.wpi.first.wpilibj.RobotDrive;
 
 /**
  *
  */
 public class DriveModule extends Module {
 
-  private RobotDrive robotDrive = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.BackLeftMotor, RobotMap.frontRightMotor, RobotMap.BackLeftMotor);
 
-  public void roboDrive(double y, double x, double angle) {
-    robotDrive.mecanumDrive_Cartesian(y, x, angle, 0);
+  public void roboDrive(double x, double y, double angle) {
+    Robot.hardwareMap.robotDrive.mecanumDrive_Cartesian(x, y, angle, 0);
   }
 
   public void teleopPeriodic() {
