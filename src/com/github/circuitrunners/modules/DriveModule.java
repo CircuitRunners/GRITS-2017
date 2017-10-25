@@ -1,4 +1,4 @@
-package com.github.circuitrunners.subsystems;
+package com.github.circuitrunners.modules;
 
 import com.github.circuitrunners.akilib.Module;
 

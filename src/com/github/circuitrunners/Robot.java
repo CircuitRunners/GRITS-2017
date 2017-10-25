@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 
 import com.github.circuitrunners.akilib.Module;
 
-import com.github.circuitrunners.subsystems.DriveModule;
+import com.github.circuitrunners.modules.DriveModule;
 
 /*
  * The VM is configured to automatically run this class, and to call the
