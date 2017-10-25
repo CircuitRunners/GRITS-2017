@@ -1,0 +1,3 @@
+[submodule "circuitlibrary"]
+	path = circuitlibrary
+	url = http://github.com/CircuitRunners/circuitlibrary
