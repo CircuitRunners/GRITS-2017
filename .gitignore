@@ -1,6 +1,7 @@
 /bin/
-/build*
+/build/
 /dist
 /target
-.classpath
-.project
+.idea/
+
+*.iml
