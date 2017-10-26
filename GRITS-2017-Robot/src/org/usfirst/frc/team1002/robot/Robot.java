@@ -20,14 +20,13 @@ import org.usfirst.frc.team1002.robot.subsystems.DriveBase;
  */
 public class Robot extends IterativeRobot {
 
-	public static final DriveBase drivetrain = new DriveBase();
+	public static DriveBase drivetrain;
 	public static OI oi;
 
 	Command autonomousCommand;
-	//Command DriveCommand;
-	//Command teleopCommand;
+	DriveCommand driveCommand;
+	Command teleopCommand;
 	SendableChooser<Command> autoChooser = new SendableChooser<>();
-	//SendableChooser<Command> teleChooser = new SendableChooser<>();
 
 	/*
 	 * This function is run when the robot is first started up and should be
@@ -35,11 +34,13 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		drivetrain = new DriveBase();
+		driveCommand = new DriveCommand();
 		oi = new OI();
 		//autoChooser.addDefault("Default", new AutoCommand());
 		autoChooser.addDefault("Default", new DriveCommand());
 		//SmartDashboard.putData("Autonomous Preset", autoChooser);
-		SmartDashboard.putData("Teleop Command", autoChooser);
+		SmartDashboard.putData("Autonomous Preset", autoChooser);
 		
 	}
 
@@ -103,12 +104,6 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		
 		/* 
-		 * Allows you to choose between different teleop commands, if for some 
-		 * reason you would ever want that. 
-		 */
-		autonomousCommand = autoChooser.getSelected();
-		
-		/* 
 		 * This makes sure that the autonomous stops running when
 		 * teleop starts running. If you want the autonomous to
 		 * continue until interrupted by another command, remove
@@ -116,7 +111,7 @@ public class Robot extends IterativeRobot {
 		 */
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		
+		driveCommand.start();
 		
 	}
 

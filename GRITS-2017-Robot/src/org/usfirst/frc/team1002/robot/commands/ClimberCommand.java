@@ -1,30 +1,23 @@
 package org.usfirst.frc.team1002.robot.commands;
 
-import org.usfirst.frc.team1002.robot.OI;
-import org.usfirst.frc.team1002.robot.Robot;
-
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DriveCommand extends Command {
+public class ClimberCommand extends Command {
 
-    public DriveCommand() {
+    public ClimberCommand() {
         // Use requires() here to declare subsystem dependencies
-    	requires(Robot.drivetrain);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.roboDrive(Robot.oi.getLeftStickX(), Robot.oi.getLeftStickY(), Robot.oi.getRightStickX());
-    	Timer.delay(0.005);
     }
 
     // Make this return true when this Command no longer needs to run execute()

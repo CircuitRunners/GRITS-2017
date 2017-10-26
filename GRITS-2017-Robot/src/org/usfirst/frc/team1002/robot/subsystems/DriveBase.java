@@ -15,7 +15,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class DriveBase extends Subsystem {
-	private RobotDrive robotDrive = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.BackLeftMotor, RobotMap.frontRightMotor, RobotMap.BackLeftMotor);
+	VictorSP frontLeftController = new VictorSP(RobotMap.frontLeftMotor);
+	VictorSP frontRightController = new VictorSP(RobotMap.frontRightMotor);
+	VictorSP backLeftController = new VictorSP(RobotMap.BackLeftMotor);
+	VictorSP backRightController = new VictorSP(RobotMap.BackRightMotor);
+	private RobotDrive robotDrive = new RobotDrive(frontLeftController, backLeftController, frontRightController, backRightController);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -25,8 +29,8 @@ public class DriveBase extends Subsystem {
     }
     
     public void roboDrive(double y, double x, double angle) {
-    	robotDrive.mecanumDrive_Cartesian(y, x, angle, 0);
     	
+    	robotDrive.mecanumDrive_Cartesian(y, x, angle, 0);
     }
 }
 

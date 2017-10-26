@@ -38,7 +38,6 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	
 	private XboxController xbox = new XboxController(0);
-	public AnalogGyro gyro = new AnalogGyro(RobotMap.gryoPort);
 	
 
 	public double getLeftStickX() {
