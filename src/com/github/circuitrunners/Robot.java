@@ -19,7 +19,7 @@ import com.github.circuitrunners.modules.DriveModule;
  */
 public class Robot extends IterativeRobot {
 
-	public static final HardwareMap hardwareMap = new HardwareMap();
+	public static final HardwareMap hardwareMap = HardwareMap.getInstance();
 
 	private static final LinkedList<Module> moduleList = new LinkedList<>();
 	private static Iterator<Module> moduleListIterator;

@@ -13,6 +13,10 @@ public class HardwareMap {
   private static final HardwareMap instance = new HardwareMap();
   public static HardwareMap getInstance() { return instance; }
 
+  private HardwareMap() {
+
+  }
+
   private static final int frontLeftMotor = 5;
   private static final int frontRightMotor = 1;
   private static final int rearLeftMotor = 8;
